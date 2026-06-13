@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://korrakiran.in/sitemap.xml
