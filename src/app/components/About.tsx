@@ -15,6 +15,7 @@ export function About() {
                 src="/20260112_172738_Original.jpg"
                 alt="Korra Kiran"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
@@ -23,9 +24,17 @@ export function About() {
               <h3 className="text-2xl sm:text-3xl font-black uppercase mb-4 bg-lime-300 inline-block px-4 py-2 border-4 border-black">
                 Who I Am
               </h3>
-              <p className="text-lg font-medium">
-                3rd-year B-Tech AI/ML student at VJIT, Hyderabad. I build production-ready AI systems that solve real problems — especially for Indian users.
-              </p>
+              <div className="space-y-4 text-lg font-medium leading-relaxed">
+                <p>
+                  Hello! I am <strong>Korra Kiran</strong>, a passionate <strong>AI Engineer</strong> and <strong>Machine Learning Engineer</strong> based in Hyderabad, India. Currently a 3rd-year B-Tech student specializing in Artificial Intelligence and Machine Learning at Vidya Jyothi Institute of Technology (VJIT), I focus on building production-ready AI systems, natural language processing pipelines, and deep learning solutions that solve real-world challenges.
+                </p>
+                <p>
+                  My portfolio features a diverse range of projects demonstrating my expertise in AI, ML, and Deep Learning. From building <strong>Vypar</strong>, a multilingual WhatsApp ERP system using LangGraph and Sarvam AI that simplifies business operations for small retailers, to developing <strong>Supply Chain Saathi</strong>, a B2B reverse auction procurement agent, I focus on turning complex machine learning research into practical applications.
+                </p>
+                <p>
+                  I am deeply interested in federated learning (collaborative training without sharing raw data), computer vision, and cloud native architectures (Docker, Tailscale, and private cloud deployments). I continuously explore new frontiers in artificial intelligence to create secure, efficient, and scalable products.
+                </p>
+              </div>
             </div>
             <div className="bg-pink-400 border-4 border-black p-6 sm:p-8 rotate-[1deg] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-2xl sm:text-3xl font-black uppercase mb-4">
