@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Header() {
@@ -50,7 +50,7 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-2">
+          <nav className="hidden md:flex gap-2 items-center">
             {navItems.map((item) => {
               const isActive = activeSection === item.toLowerCase();
               return (
@@ -67,6 +67,15 @@ export function Header() {
                 </a>
               );
             })}
+            <a
+              href="https://github.com/korrakiran"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all ml-2"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -88,14 +97,24 @@ export function Header() {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-6 py-3 border-4 border-black font-black uppercase text-sm transition-colors text-center ${
-                    isActive ? 'bg-cyan-300' : 'bg-white hover:bg-cyan-300'
+                  className={`px-6 py-3 border-4 border-black bg-white font-black uppercase text-sm hover:bg-cyan-300 transition-colors text-center ${
+                    isActive ? 'bg-cyan-300' : 'bg-white'
                   }`}
                 >
                   {item}
                 </a>
               );
             })}
+            <a
+              href="https://github.com/korrakiran"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-2 px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 transition-colors text-center"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
           </nav>
         )}
       </div>
