@@ -24,14 +24,16 @@ export function Header() {
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-    navItems.forEach((item) => {
-      const el = document.getElementById(item.toLowerCase());
+    const sectionsToObserve = ['hero', ...navItems.map(item => item.toLowerCase())];
+
+    sectionsToObserve.forEach((id) => {
+      const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => {
-      navItems.forEach((item) => {
-        const el = document.getElementById(item.toLowerCase());
+      sectionsToObserve.forEach((id) => {
+        const el = document.getElementById(id);
         if (el) observer.unobserve(el);
       });
     };

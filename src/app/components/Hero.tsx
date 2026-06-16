@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-gradient-to-br from-pink-200 via-purple-200 to-cyan-200 border-b-8 border-black relative overflow-hidden">
+    <section id="hero" className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-gradient-to-br from-pink-200 via-purple-200 to-cyan-200 border-b-8 border-black relative overflow-hidden">
       <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400 border-4 border-black rotate-12 hidden lg:block" />
       <div className="absolute bottom-20 right-20 w-32 h-32 bg-pink-400 border-4 border-black rotate-[-15deg] hidden lg:block" />
       <div className="absolute top-1/2 right-10 w-16 h-16 bg-cyan-400 border-4 border-black rounded-full hidden lg:block" />
