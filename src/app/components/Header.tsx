@@ -1,11 +1,11 @@
-import { Menu, X, Github } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
 
-  const navItems = ['About', 'Projects', 'Skills', 'Contact'];
+  const navItems = ['About', 'Projects', 'Skills', 'Github', 'Contact'];
 
   useEffect(() => {
     const observerOptions = {
@@ -67,15 +67,6 @@ export function Header() {
                 </a>
               );
             })}
-            <a
-              href="https://github.com/korrakiran"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all ml-2"
-            >
-              <Github size={18} />
-              GitHub
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -105,16 +96,6 @@ export function Header() {
                 </a>
               );
             })}
-            <a
-              href="https://github.com/korrakiran"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex items-center justify-center gap-2 px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 transition-colors text-center"
-            >
-              <Github size={18} />
-              GitHub
-            </a>
           </nav>
         )}
       </div>
