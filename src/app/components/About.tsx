@@ -26,13 +26,10 @@ export function About() {
               </h3>
               <div className="space-y-3 text-base font-medium leading-relaxed">
                 <p>
-                  Hello! I am <strong>Korra Kiran</strong>, a passionate <strong>AI & Machine Learning Engineer</strong> based in Hyderabad, India. Currently a 3rd-year B.Tech student specializing in AI/ML at Vidya Jyothi Institute of Technology (VJIT), I build production-ready AI systems, NLP pipelines, and deep learning solutions that solve real-world challenges.
+                  Hello! I am <strong>Korra Kiran</strong>, an <strong>AI/ML Engineer & Deep Learning Builder</strong> based in Hyderabad, India. Currently a final-year B.Tech student specializing in Artificial Intelligence and Machine Learning at Vidya Jyothi Institute of Technology (VJIT), I build production-ready AI systems, conversational agents, and deep learning solutions that scale.
                 </p>
                 <p>
-                  I specialize in bridging the gap between ML research and practice. Key projects include <strong>Vypar</strong> (a multilingual WhatsApp ERP using LangGraph and Sarvam AI to help small retailers) and <strong>Supply Chain Saathi</strong> (a B2B reverse auction procurement agent).
-                </p>
-                <p>
-                  My interests cover federated learning, computer vision, and cloud-native architectures (Docker, Tailscale). I focus on building secure, scalable, and efficient AI products.
+                  I focus on bridging the gap between machine learning research and practical, real-world applications. From designing voice and text-based WhatsApp ERPs to implementing federated learning architectures, my goal is to build secure, private, and efficient products.
                 </p>
               </div>
             </div>
@@ -41,10 +38,9 @@ export function About() {
                 What I Do
               </h3>
               <ul className="space-y-2 text-base font-mono font-bold">
-                <li>→ Conversational AI & Agents (LangGraph)</li>
-                <li>→ Full-Stack AI Products & WhatsApp Bots</li>
-                <li>→ Machine Learning & Deep Learning</li>
-                <li>→ Federated Learning Systems</li>
+                <li>→ Conversational AI & Agents (LangGraph, LLMs)</li>
+                <li>→ Full-Stack AI Products (WhatsApp, FastAPI)</li>
+                <li>→ Federated Learning & Privacy-Preserving ML</li>
                 <li>→ Cloud & DevOps (Docker, AWS, MongoDB)</li>
               </ul>
             </div>

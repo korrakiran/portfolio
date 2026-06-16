@@ -1,4 +1,4 @@
-import { Brain, Code2, Cloud, Zap } from 'lucide-react';
+import { Brain, Code2, Cloud, Zap, Eye } from 'lucide-react';
 
 export function Skills() {
   const skills = [
@@ -6,32 +6,39 @@ export function Skills() {
       category: 'ML & Deep Learning',
       icon: Brain,
       color: 'bg-yellow-400',
-      items: ['Scikit-learn', 'XGBoost', 'CNNs', 'Federated Learning (FedAvg)', 'Transfer Learning', 'NLP'],
+      items: ['Scikit-learn', 'XGBoost', 'CNNs', 'Transfer Learning', 'Federated Learning'],
     },
     {
-      category: 'Languages & Data',
-      icon: Code2,
-      color: 'bg-pink-400',
-      items: ['Python', 'Pandas', 'NumPy', 'REST APIs'],
-    },
-    {
-      category: 'AI & Vision',
+      category: 'AI',
       icon: Zap,
       color: 'bg-cyan-400',
-      items: ['OpenCV', 'LangGraph', 'Sarvam AI', 'Gemini Flash (LLM)', 'Computer Vision', 'MediaPipe'],
+      items: ['LangGraph', 'Sarvam AI', 'Gemini Flash', 'LLMs', 'NLP'],
     },
     {
-      category: 'Cloud & DevOps',
+      category: 'Backend',
+      icon: Code2,
+      color: 'bg-pink-400',
+      items: ['Python', 'FastAPI', 'REST APIs', 'MongoDB', 'PostgreSQL'],
+    },
+    {
+      category: 'DevOps',
       icon: Cloud,
       color: 'bg-lime-300',
-      items: ['AWS S3', 'Azure (Model Training)', 'MongoDB', 'Docker', 'Tailscale', 'Nextcloud'],
+      items: ['Docker', 'AWS S3', 'Azure ML', 'Tailscale'],
+    },
+    {
+      category: 'Vision',
+      icon: Eye,
+      color: 'bg-purple-400',
+      items: ['OpenCV', 'MediaPipe', 'Computer Vision'],
     },
   ];
 
   const awards = [
-    { label: '🏆 Best Student', sub: 'Cybersecurity Hackathon', color: 'bg-yellow-300' },
-    { label: '🥈 2nd Place', sub: 'Reskill Hackathon', color: 'bg-cyan-300' },
-    { label: '🎯 Finalist', sub: 'Bizzhack Ideathon', color: 'bg-pink-300' },
+    { label: '🏆 1st Place', sub: 'HackXtream (TrustFundX, Algorand)', color: 'bg-yellow-300' },
+    { label: '🏆 Best Student', sub: 'VJIT Cybersecurity Hackathon', color: 'bg-cyan-300' },
+    { label: '🥈 2nd Place', sub: 'Reskill Hackathon', color: 'bg-pink-300' },
+    { label: '🎯 Finalist', sub: 'Bizzhack Ideathon', color: 'bg-lime-300' },
   ];
 
   return (
@@ -41,7 +48,7 @@ export function Skills() {
           Skills
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -68,7 +75,7 @@ export function Skills() {
           <h3 className="text-3xl sm:text-4xl font-black uppercase mb-8 inline-block bg-yellow-400 px-6 py-3 border-4 border-black rotate-[1deg] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             Awards & Achievements
           </h3>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {awards.map((award, i) => (
               <div key={i} className={`${award.color} border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all`}>
                 <p className="font-black text-2xl mb-2">{award.label}</p>
