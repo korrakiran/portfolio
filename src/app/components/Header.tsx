@@ -27,14 +27,6 @@ export function Header() {
                 {item}
               </a>
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
-            >
-              Resume
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -59,15 +51,6 @@ export function Header() {
                 {item}
               </a>
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="px-6 py-3 border-4 border-black bg-yellow-400 font-black uppercase text-sm hover:bg-yellow-500 transition-colors text-center"
-            >
-              Resume
-            </a>
           </nav>
         )}
       </div>
