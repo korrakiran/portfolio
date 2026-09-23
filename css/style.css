@@ -330,7 +330,7 @@ main section[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .poster-cta .btn-ghost:hover { background: var(--ink); color: var(--paper); }
 
 .data-row {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--ink);
 }
 .data-cell { padding: 22px 20px 26px; border-left: 1px solid var(--line); }
@@ -527,11 +527,6 @@ main section[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .case--flip .case-body { order: 1; }
 
 .case-aside { display: flex; flex-direction: column; gap: 22px; }
-.case-no {
-  font: 700 clamp(3.4rem, 6.5vw, 6.5rem)/0.85 var(--f-display);
-  letter-spacing: -0.045em;
-  color: var(--red);
-}
 .case-cat {
   font: 500 10.5px/1.7 var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--white-dim);
@@ -865,7 +860,6 @@ body { animation: pageIn 0.4s ease both; }
   /* cases: number column narrows, meta follows below the body */
   .case-grid,
   .case--flip .case-grid { grid-template-columns: 90px minmax(0, 1fr); }
-  .case-no { font-size: clamp(2.6rem, 5vw, 4rem); }
   .case--flip .case-aside { order: 0; text-align: left; }
   .case--flip .case-cat { margin-left: 0; }
 
@@ -907,7 +901,7 @@ body { animation: pageIn 0.4s ease both; }
   .poster-cta { margin-top: 22px; }
 
   .data-row { grid-template-columns: 1fr 1fr; }
-  .data-cell:nth-child(3) { border-left: 0; padding-left: 0; }
+  .data-cell:nth-child(3) { border-left: 0; padding-left: 0; grid-column: 1 / -1; }
   .data-cell:nth-child(3),
   .data-cell:nth-child(4) { border-top: 1px solid var(--line); }
 
@@ -925,14 +919,17 @@ body { animation: pageIn 0.4s ease both; }
 
   /* cases: keep the editorial hierarchy, single column with intentional order */
   .case { padding: clamp(32px, 6vw, 52px) 0; }
-  .case-ghost { font-size: clamp(5rem, 26vw, 9rem); top: 8px; }
+  .case-ghost { font-size: clamp(5rem, 26vw, 9rem); }
+  /* ghost numeral always sits on the right on mobile, clear of the tags */
+  .case-ghost,
+  .case--flip .case-ghost { right: -0.02em; left: auto; top: 10px; }
+  .case-tag { background: var(--black); }
   .case-tags { margin-bottom: var(--space-1); }
   .case-grid,
   .case--flip .case-grid { grid-template-columns: 1fr; gap: 18px; }
   .case-aside {
     flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 8px 22px;
   }
-  .case-no { font-size: 2.6rem; }
   .case-cat { border-top: 0; padding-top: 0; max-width: none; }
   .case-meta { display: none; }
   .case-title { font-size: clamp(2.2rem, 10vw, 4rem); }
