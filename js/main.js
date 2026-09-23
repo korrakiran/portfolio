@@ -1,7 +1,5 @@
-/* ============================================================
-   KORRA KIRAN — PORTFOLIO interactions
-   vanilla JS · no dependencies
-   ============================================================ */
+/* KORRA KIRAN PORTFOLIO interactions
+   vanilla JS, no dependencies */
 (() => {
   "use strict";
 
@@ -406,19 +404,19 @@
           status.classList.add("err");
           status.textContent = "// ERROR SENDING VIA ENDPOINT. OPENING MAIL CLIENT...";
           setTimeout(() => {
-            const subject = encodeURIComponent(`Portfolio contact — ${name}`);
-            const body = encodeURIComponent(`${msg}\n\n— ${name}\n${email}`);
+            const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+            const body = encodeURIComponent(`${msg}\n\nFrom ${name}\n${email}`);
             window.location.href = `mailto:kirankorra831@gmail.com?subject=${subject}&body=${body}`;
           }, 1200);
         } finally {
           if (submitBtn) submitBtn.disabled = false;
         }
       } else {
-        const subject = encodeURIComponent(`Portfolio contact — ${name}`);
-        const body = encodeURIComponent(`${msg}\n\n— ${name}\n${email}`);
+        const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+        const body = encodeURIComponent(`${msg}\n\nFrom ${name}\n${email}`);
         window.location.href = `mailto:kirankorra831@gmail.com?subject=${subject}&body=${body}`;
         status.classList.remove("err");
-        status.textContent = "// OPENING YOUR MAIL CLIENT — TALK SOON";
+        status.textContent = "// OPENING YOUR MAIL CLIENT, TALK SOON";
       }
     });
   }
@@ -466,7 +464,7 @@
             }
           }, 3500);
         } catch (err) {
-          const subject = encodeURIComponent("Notify me — first story drop");
+          const subject = encodeURIComponent("Notify me: first story drop");
           const body = encodeURIComponent(`Hi Kiran,\n\nPlease ping me when the first story goes live.\n\n${email}`);
           window.location.href = `mailto:kirankorra831@gmail.com?subject=${subject}&body=${body}`;
           if (btn) {
@@ -475,63 +473,16 @@
           }
         }
       } else {
-        const subject = encodeURIComponent("Notify me — first story drop");
+        const subject = encodeURIComponent("Notify me: first story drop");
         const body = encodeURIComponent(`Hi Kiran,\n\nPlease ping me when the first story goes live.\n\n${email}`);
         window.location.href = `mailto:kirankorra831@gmail.com?subject=${subject}&body=${body}`;
       }
     });
   }
 
-  /* ---------- hero interactive diagram telemetry simulation ---------- */
-  const simBtn = document.getElementById("runSimulation");
-  const simConsole = document.getElementById("simConsole");
-  if (simBtn && simConsole) {
-    let isRunning = false;
-    simBtn.addEventListener("click", () => {
-      if (isRunning) return;
-      isRunning = true;
-      simBtn.classList.add("active");
-      simConsole.classList.add("active");
-      simConsole.innerHTML = "";
-
-      const steps = [
-        { tag: "VOICE_IN", val: "Audio payload received: 1.4s .wav (Telugu) [User: Retailer #409]", node: "node-user", delay: 0 },
-        { tag: "STT_SARVAM", val: "Sarvam Speech-to-Text transcript: 'ఈరోజు బియ్యం స్టాక్ ఎంత ఉంది?' (Latency: 310ms)", node: "node-llm", delay: 450 },
-        { tag: "LANGGRAPH", val: "Agent router selected tool: QueryInventoryState(item='rice', date='today')", node: "node-orchestrator", delay: 900 },
-        { tag: "GUARDRAILS", val: "Passed read-only AST check & SQL parameter sanitizer", node: "node-guardrails", delay: 1300 },
-        { tag: "MONGODB", val: "Executed db.inventory.find({ item: 'rice' }) -> 420 kg in stock", node: "node-mongo", delay: 1700 },
-        { tag: "VOICE_OUT", val: "TTS audio response dispatched via WhatsApp API -> Total RT: 1.18s ✓", node: "node-user", delay: 2100 }
-      ];
-
-      steps.forEach((s) => {
-        setTimeout(() => {
-          const line = document.createElement("div");
-          line.className = "sim-line";
-          const now = new Date().toISOString().slice(11, 19);
-          line.innerHTML = `<span class="ts">[${now}]</span><span class="tag">[${s.tag}]</span><span class="val">${s.val}</span>`;
-          simConsole.appendChild(line);
-          requestAnimationFrame(() => line.classList.add("in"));
-          simConsole.scrollTop = simConsole.scrollHeight;
-
-          // Pulse target node in SVG
-          const targetNode = document.querySelector(`[data-node-id="${s.node}"]`);
-          if (targetNode) {
-            targetNode.classList.add("pulse-active");
-            setTimeout(() => targetNode.classList.remove("pulse-active"), 600);
-          }
-        }, s.delay);
-      });
-
-      setTimeout(() => {
-        isRunning = false;
-        simBtn.classList.remove("active");
-      }, 2600);
-    });
-  }
-
   /* ---------- project category filtering ---------- */
   const filters = [...document.querySelectorAll("[data-filter]")];
-  const projCards = [...document.querySelectorAll(".proj-card, .flagship, .proj-featured")];
+  const projCards = [...document.querySelectorAll(".case, .entry, .dish, .build, .work, .proj-card, .flagship, .proj-featured")];
   if (filters.length && projCards.length) {
     filters.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -597,54 +548,6 @@
       }
     });
   });
-
-  /* ---------- hero runtime diagram: interactive hotspots ---------- */
-  const fig = document.getElementById("runtimeFig");
-  const heroTip = document.getElementById("heroTip");
-  if (fig && heroTip) {
-    const hotspots = [...fig.querySelectorAll(".hotspot")];
-    const TIP_DEFAULT = heroTip.textContent;
-    let cycleIdx = 0;
-    let cycleTimer = null;
-    let userActive = false;
-
-    const activate = (node) => {
-      hotspots.forEach((n) => n.classList.toggle("on", n === node));
-      fig.classList.add("focusing");
-      heroTip.textContent = node.dataset.tip;
-      heroTip.classList.add("active");
-    };
-    const deactivate = () => {
-      hotspots.forEach((n) => n.classList.remove("on"));
-      fig.classList.remove("focusing");
-      heroTip.textContent = TIP_DEFAULT;
-      heroTip.classList.remove("active");
-    };
-
-    hotspots.forEach((node) => {
-      node.addEventListener("mouseenter", () => { userActive = true; activate(node); });
-      node.addEventListener("mouseleave", () => { userActive = false; deactivate(); });
-      node.addEventListener("focus", () => { userActive = true; activate(node); });
-      node.addEventListener("blur", () => { userActive = false; deactivate(); });
-    });
-    // touch: tapping a component pins it, tapping elsewhere releases
-    document.addEventListener("touchstart", (e) => {
-      const hit = e.target.closest && e.target.closest("#runtimeFig .hotspot");
-      if (hit) { userActive = true; activate(hit); }
-      else if (userActive) { userActive = false; deactivate(); }
-    }, { passive: true });
-
-    // idle auto-cycle: walks one component at a time while the fig is on screen
-    if (!reduceMotion) {
-      cycleTimer = setInterval(() => {
-        if (userActive || document.hidden) return;
-        const r = fig.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > window.innerHeight) return;
-        activate(hotspots[cycleIdx % hotspots.length]);
-        cycleIdx++;
-      }, 3200);
-    }
-  }
 
   /* ---------- year ---------- */
   const year = document.getElementById("year");
